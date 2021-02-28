@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  xelpback:
+    build:
+      context: ./nodejs
+    ports:
+      - '5006:5006'
+    env_file:
+      - ./nodejs/.env.prod
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    volumes: 
+      - ./nodejs/docker/initdb/:/docker-entrypoint-initdb.d/
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: user
+      MONGO_INITDB_DATABASE: XelpDB
+    ports:
+      - '27017:27017'
