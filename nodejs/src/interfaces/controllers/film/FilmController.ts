@@ -6,12 +6,12 @@ import { Body, Controller, Post, Route } from 'tsoa';
 
 @Route("film")
 export default class FilmController extends Controller {
-    
+
     @Post()
     public async createFilm(@Body() body): Promise<Film> {
-        // TODO : express-validator    
+        // TODO : express-validator
         const repository = new FilmRepository();
-    
+
         const film = new Film(
             null,
             body.title,
@@ -22,8 +22,7 @@ export default class FilmController extends Controller {
                 body.meta.pressNote),
                 body.synopsis,
             );
-        
+
         return createFilmUseCase(film, repository);
     }
-
 }
