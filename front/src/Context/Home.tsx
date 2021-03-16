@@ -1,4 +1,5 @@
 import React, {createContext, useState, useContext} from 'react';
+import { getFilmList } from '../Services/filmService';
 
 const HomeContext = createContext({
     appName: 'Xelp',

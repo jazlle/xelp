@@ -11,7 +11,7 @@ test('createFilm usecase', async () => {
 
     // When
     const filmParam = new Film(null, 'fakeTitle', ['act1', 'act2'], new Date(2020, 12,12), {usersNote: 3, pressNote: 4}, 'fakeSynopsis')
-    const film = await createFilm(filmParam, mockFilmRepository);
+    const film = await createFilm(filmParam);
 
     // Then
     expect(mockFilmRepository.persist).toHaveBeenCalledWith(filmParam);

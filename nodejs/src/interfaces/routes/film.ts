@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
         const response = await controller.createFilm(req.body);
         return res.send(response);
     } catch (error) {
+        // gestion erreur coté middleware express
         res.status(500).send({error});
     }
 });

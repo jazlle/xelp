@@ -11,7 +11,7 @@ test('getFilm usecase', async () => {
 
     // When
     const idParam = '1';
-    const film = await getFilm(idParam, mockFilmRepository);
+    const film = await getFilm(idParam);
 
     // Then
     expect(mockFilmRepository.get).toHaveBeenCalledWith(idParam);

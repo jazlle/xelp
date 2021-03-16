@@ -11,8 +11,6 @@ export default class FilmController extends Controller {
     @Post()
     public async createFilm(@Body() body): Promise<Film> {
         // TODO : express-validator
-        const repository = new FilmRepository();
-
         const film = new Film(
             null,
             body.title,
@@ -24,13 +22,11 @@ export default class FilmController extends Controller {
             body.synopsis,
             );
 
-        return createFilmUseCase(film, repository);
+        return createFilmUseCase(film);
     }
 
     @Get()
     public async getFilm(id: string): Promise<Film> {
-        const repository = new FilmRepository();
-
-        return getFilmUseCase(id, repository);
+        return getFilmUseCase(id);
     }
 }

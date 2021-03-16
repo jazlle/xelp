@@ -1,15 +1,11 @@
 import {useHomeContext} from '../../Context/Home';
+import { getFilmList } from '../../Services/filmService';
 
 const useHome = () => {
-    const {appName} = useHomeContext();
-
-
-    const onAction = (data: string) => {
-    };
+    const filmList = getFilmList();
 
     return {
-        onAction,
-        appName,
+        filmList,
     };
 };
 

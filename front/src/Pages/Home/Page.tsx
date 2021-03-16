@@ -1,12 +1,14 @@
 import {useHome} from './useHome';
 import React from 'react';
+import FilmList from '../FilmList/Page';
+import { FilmListProvider } from '../../Context/FilmList';
 import './Home.css';
 
 const HomeRoute: React.FC = () => {
-    const {appName} = useHome();
+    const {filmList} = useHome();
     return (
         <>
-            <h1>Hello from {appName}</h1>
+            <FilmList {...filmList}/>
         </>
     );
 };
